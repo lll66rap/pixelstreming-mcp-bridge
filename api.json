@@ -1,0 +1,2675 @@
+[
+    {
+        "category": "actor",
+        "category_zh": "对象",
+        "action": [
+            {
+                "action_name": "focusActor",
+                "action_example": [
+                    {
+                        "example_name": "位置距离",
+                        "example_data": {
+                            "id": "action_name",
+                            "distance": 9000,
+                            "pitch": -45,
+                            "yaw": 30,
+                            "time": 1.5
+                        }
+                    },
+                    {
+                        "example_name": "视角位置",
+                        "example_data": {
+                            "id": "action_name",
+                            "view_x": 100,
+                            "view_y": 1000,
+                            "view_z": 600,
+                            "time": 1.5
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeActorVisible",
+                "action_example": [
+                    {
+                        "example_name": "显示隐藏Actor",
+                        "example_data": {
+                            "ids": [
+                                "actor_name_01",
+                                "actor_name_02"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "spawnActor",
+                "action_example": [
+                    {
+                        "example_name": "创建对象",
+                        "example_data": {
+                            "type": "94"
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "exitSpawnActor",
+                "action_example": [
+                    {
+                        "example_name": "退出创建对象",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteActors",
+                "action_example": [
+                    {
+                        "example_name": "删除对象",
+                        "example_data": {
+                            "ids": [
+                                "actor_01",
+                                "actor_02"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "setActorTransform",
+                "action_example": [
+                    {
+                        "example_name": "设置对象位置",
+                        "example_data": {
+                            "id": "actor_01",
+                            "position": [
+                                100,
+                                200,
+                                300
+                            ],
+                            "rotation": [
+                                90,
+                                80,
+                                45
+                            ],
+                            "scale": [
+                                1,
+                                10,
+                                5
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "camera",
+        "category_zh": "镜头",
+        "action": [
+            {
+                "action_name": "transformCamera",
+                "action_example": [
+                    {
+                        "example_name": "移动镜头",
+                        "example_data": {
+                            "position": [
+                                5000,
+                                2000,
+                                3000
+                            ],
+                            "position_type": 0,
+                            "pitch": -45,
+                            "yaw": 95,
+                            "distance": 5000,
+                            "time": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getCameraInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取当前镜头信息",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "focusPosition",
+                "action_example": [
+                    {
+                        "example_name": "聚焦(位置距离)",
+                        "example_data": {
+                            "position": [
+                                100,
+                                100,
+                                100
+                            ],
+                            "position_type": 0,
+                            "distance": 9000,
+                            "pitch": -45,
+                            "yaw": 30,
+                            "time": 1.5
+                        }
+                    },
+                    {
+                        "example_name": "聚焦(视角距离)",
+                        "example_data": {
+                            "position": [
+                                100,
+                                100,
+                                100
+                            ],
+                            "position_type": 0,
+                            "view_x": 100,
+                            "view_y": 1000,
+                            "view_z": 600,
+                            "time": 1.5
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "rotateCamera",
+                "action_example": [
+                    {
+                        "example_name": "旋转镜头",
+                        "example_data": {
+                            "position": [
+                                100,
+                                100,
+                                100
+                            ],
+                            "position_type": 0,
+                            "distance": 9000,
+                            "pitch": -45,
+                            "yaw": 30,
+                            "is_loop": true,
+                            "time": 10
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "roamCamera",
+                "action_example": [
+                    {
+                        "example_name": "漫游镜头",
+                        "example_data": {
+                            "loop": 0,
+                            "points": [
+                                {
+                                    "position": [
+                                        0,
+                                        0,
+                                        10000
+                                    ],
+                                    "position_type": 0,
+                                    "pitch": -60,
+                                    "yaw": -60,
+                                    "time": 2,
+                                    "delay_time": 2
+                                },
+                                {
+                                    "position": [
+                                        10000,
+                                        0,
+                                        10000
+                                    ],
+                                    "position_type": 0,
+                                    "pitch": -60,
+                                    "yaw": -60,
+                                    "time": 2,
+                                    "delay_time": 2
+                                },
+                                {
+                                    "position": [
+                                        10000,
+                                        10000,
+                                        10000
+                                    ],
+                                    "position_type": 0,
+                                    "pitch": -60,
+                                    "yaw": -60,
+                                    "time": 2,
+                                    "delay_time": 2
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "common",
+        "category_zh": "通用",
+        "action": [
+            {
+                "action_name": "playerSpeed",
+                "action_example": [
+                    {
+                        "example_name": "控制速度",
+                        "example_data": {
+                            "move_speed": 5,
+                            "zoom_speed": 1.5
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "setResolutionSize",
+                "action_example": [
+                    {
+                        "example_name": "设置分辨率",
+                        "example_data": {
+                            "x": 1920,
+                            "y": 1080
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "screenMessages",
+                "action_example": [
+                    {
+                        "example_name": "显隐屏幕log",
+                        "example_data": {
+                            "enable": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "axisType",
+                "action_example": [
+                    {
+                        "example_name": "控制类型",
+                        "example_data": {
+                            "type": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "setCRS",
+                "action_example": [
+                    {
+                        "example_name": "设置坐标系",
+                        "example_data": {
+                            "type": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "executeCommand",
+                "action_example": []
+            }
+        ]
+    },
+    {
+        "category": "dimenssion",
+        "category_zh": "测量",
+        "action": [
+            {
+                "action_name": "dimenssion",
+                "action_example": [
+                    {
+                        "example_name": "开始测量",
+                        "example_data": {
+                            "color": "#FF0000",
+                            "axis": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteDimenssion",
+                "action_example": [
+                    {
+                        "example_name": "删除测量",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "changeUnits",
+                "action_example": [
+                    {
+                        "example_name": "修改单位",
+                        "example_data": {
+                            "units": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "heatmap",
+        "category_zh": "热力图",
+        "action": [
+            {
+                "action_name": "drawHeatMap",
+                "action_example": [
+                    {
+                        "example_name": "绘制热力图",
+                        "example_data": {
+                            "position": [
+                                2140,
+                                4580,
+                                500
+                            ],
+                            "position_type": 0,
+                            "scale": [
+                                20,
+                                20,
+                                20
+                            ],
+                            "resolution": 1024,
+                            "radius": 64,
+                            "strength": 0.1,
+                            "is3d": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "createHeatMap",
+                "action_example": [
+                    {
+                        "example_name": "创建热力图",
+                        "example_data": {
+                            "id": "heatmap_01",
+                            "position": [
+                                2140,
+                                4580,
+                                500
+                            ],
+                            "resolution": 1024,
+                            "strength": 0.10000000149011612,
+                            "radius": 128,
+                            "is3d": false,
+                            "points": [
+                                {
+                                    "position": [
+                                        1746.64697265625,
+                                        4443.36865234375
+                                    ],
+                                    "strength": 0.6145634651184082,
+                                    "radius": 444.6072998046875
+                                },
+                                {
+                                    "position": [
+                                        2806.73779296875,
+                                        5228.6708984375
+                                    ],
+                                    "strength": 0.5903195142745972,
+                                    "radius": 303.93115234375
+                                },
+                                {
+                                    "position": [
+                                        1608.8863525390625,
+                                        4679.03271484375
+                                    ],
+                                    "strength": 0.3785882294178009,
+                                    "radius": 500.4058837890625
+                                },
+                                {
+                                    "position": [
+                                        2967.204345703125,
+                                        4262.88232421875
+                                    ],
+                                    "strength": 0.24887233972549438,
+                                    "radius": 302.16546630859375
+                                },
+                                {
+                                    "position": [
+                                        2020.0927734375,
+                                        5200.2275390625
+                                    ],
+                                    "strength": 0.5585863590240479,
+                                    "radius": 426.9192810058594
+                                },
+                                {
+                                    "position": [
+                                        1481.3800048828125,
+                                        4128.234375
+                                    ],
+                                    "strength": 0.4018250107765198,
+                                    "radius": 451.2559509277344
+                                },
+                                {
+                                    "position": [
+                                        1989.330078125,
+                                        5068.998046875
+                                    ],
+                                    "strength": 0.6705954074859619,
+                                    "radius": 300.5951232910156
+                                },
+                                {
+                                    "position": [
+                                        1365.40966796875,
+                                        3759.32666015625
+                                    ],
+                                    "strength": 0.2964445948600769,
+                                    "radius": 483.6475830078125
+                                },
+                                {
+                                    "position": [
+                                        1596.251708984375,
+                                        5407.26513671875
+                                    ],
+                                    "strength": 0.5421796441078186,
+                                    "radius": 471.1862487792969
+                                },
+                                {
+                                    "position": [
+                                        1350.3336181640625,
+                                        3935.9677734375
+                                    ],
+                                    "strength": 0.7114657759666443,
+                                    "radius": 379.5897216796875
+                                },
+                                {
+                                    "position": [
+                                        2842.566650390625,
+                                        3779.468994140625
+                                    ],
+                                    "strength": 0.7459822297096252,
+                                    "radius": 494.68695068359375
+                                },
+                                {
+                                    "position": [
+                                        1746.64697265625,
+                                        4443.36865234375
+                                    ],
+                                    "strength": 0.6145634651184082,
+                                    "radius": 444.6072998046875
+                                },
+                                {
+                                    "position": [
+                                        2806.73779296875,
+                                        5228.6708984375
+                                    ],
+                                    "strength": 0.5903195142745972,
+                                    "radius": 303.93115234375
+                                },
+                                {
+                                    "position": [
+                                        1608.8863525390625,
+                                        4679.03271484375
+                                    ],
+                                    "strength": 0.3785882294178009,
+                                    "radius": 500.4058837890625
+                                },
+                                {
+                                    "position": [
+                                        2967.204345703125,
+                                        4262.88232421875
+                                    ],
+                                    "strength": 0.24887233972549438,
+                                    "radius": 302.16546630859375
+                                },
+                                {
+                                    "position": [
+                                        2020.0927734375,
+                                        5200.2275390625
+                                    ],
+                                    "strength": 0.5585863590240479,
+                                    "radius": 426.9192810058594
+                                },
+                                {
+                                    "position": [
+                                        1481.3800048828125,
+                                        4128.234375
+                                    ],
+                                    "strength": 0.4018250107765198,
+                                    "radius": 451.2559509277344
+                                },
+                                {
+                                    "position": [
+                                        1989.330078125,
+                                        5068.998046875
+                                    ],
+                                    "strength": 0.6705954074859619,
+                                    "radius": 300.5951232910156
+                                },
+                                {
+                                    "position": [
+                                        1365.40966796875,
+                                        3759.32666015625
+                                    ],
+                                    "strength": 0.2964445948600769,
+                                    "radius": 483.6475830078125
+                                },
+                                {
+                                    "position": [
+                                        1596.251708984375,
+                                        5407.26513671875
+                                    ],
+                                    "strength": 0.5421796441078186,
+                                    "radius": 471.1862487792969
+                                },
+                                {
+                                    "position": [
+                                        1350.3336181640625,
+                                        3935.9677734375
+                                    ],
+                                    "strength": 0.7114657759666443,
+                                    "radius": 379.5897216796875
+                                },
+                                {
+                                    "position": [
+                                        2842.566650390625,
+                                        3779.468994140625
+                                    ],
+                                    "strength": 0.7459822297096252,
+                                    "radius": 494.68695068359375
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "randomHeatMap",
+                "action_example": [
+                    {
+                        "example_name": "随机热力图",
+                        "example_data": {
+                            "position": [
+                                2140,
+                                4580,
+                                500
+                            ],
+                            "position_type": 0,
+                            "scale": [
+                                20,
+                                20,
+                                20
+                            ],
+                            "resolution": 1024,
+                            "radius": 64,
+                            "strength": 0.1,
+                            "is3d": false,
+                            "num": 1000
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "clearHeatMaps",
+                "action_example": [
+                    {
+                        "example_name": "清除数据",
+                        "example_data": {
+                            "ids": [
+                                "HeatMap_LCDUEDyS_1701706851"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "clearAllHeatMaps",
+                "action_example": [
+                    {
+                        "example_name": "清除所有热力图数据",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteHeatMaps",
+                "action_example": [
+                    {
+                        "example_name": "删除热力图",
+                        "example_data": {
+                            "ids": [
+                                "HeatMap_LCDUEDyS_1701706851"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllHeatMaps",
+                "action_example": [
+                    {
+                        "example_name": "删除所有热力图",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "exitDrawHeatMap",
+                "action_example": [
+                    {
+                        "example_name": "退出绘制热力图",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "changeVisibleHeatMaps",
+                "action_example": [
+                    {
+                        "example_name": "显隐热力图",
+                        "example_data": {
+                            "ids": [
+                                "HeatMap_LCDUEDyS_1701706851"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllVisibleHeatMaps",
+                "action_example": [
+                    {
+                        "example_name": "显隐所有热力图",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getHeatMaps",
+                "action_example": [
+                    {
+                        "example_name": "获取热力图数据",
+                        "example_data": {
+                            "ids": [
+                                "HeatMap_LCDUEDyS_1701706851"
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "map",
+        "category_zh": "地图",
+        "action": [
+            {
+                "action_name": "loadMap",
+                "action_example": [
+                    {
+                        "example_name": "创建模板（选择底板）",
+                        "example_data": {
+                            "savegame_id": "sav_001",
+                            "is_cover": false,
+                            "area_block": [
+                                {
+                                    "province_id": 310000,
+                                    "city_id": [
+                                        310104,
+                                        310105,
+                                        310106
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "poi",
+        "category_zh": "兴趣点",
+        "action": [
+            {
+                "action_name": "updatePois",
+                "action_example": [
+                    {
+                        "example_name": "添加/修改POI(GIF)",
+                        "example_data": {
+                            "pois": [
+                                {
+                                    "id": "Poi_Gif1",
+                                    "type": "Gif",
+                                    "position": [
+                                        120.63711243664012,
+                                        31.417854721421083,
+                                        6000
+                                    ],
+                                    "position_type": 1,
+                                    "povit": [
+                                        1,
+                                        -0.5
+                                    ],
+                                    "icon_info": {
+                                        "size": 0.3,
+                                        "show_icon": true,
+                                        "icon_default": "UI\\gif\\T_Emoj01.gif",
+                                        "show_text": true,
+                                        "text_type": 1,
+                                        "name": "这是个GIF",
+                                        "font_size": 20,
+                                        "text_padding": [
+                                            100,
+                                            10,
+                                            0,
+                                            0
+                                        ],
+                                        "font_color": "#FF7F6D",
+                                        "auto_wrap": false
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "example_name": "添加/修改POI(文字在图标内)",
+                        "example_data": {
+                            "pois": [
+                                {
+                                    "id": "Poi1",
+                                    "type": "重要点位",
+                                    "position": [
+                                        0,
+                                        0,
+                                        1000
+                                    ],
+                                    "position_type": 0,
+                                    "show_range": [
+                                        0,
+                                        0
+                                    ],
+                                    "povit": [
+                                        0.2,
+                                        0
+                                    ],
+                                    "icon_info": {
+                                        "size": 0.8,
+                                        "show_icon": true,
+                                        "icon_default": "UI\\T_UI_POIIcon_01.png",
+                                        "icon_active": "UI\\T_UI_POIIcon_02.png",
+                                        "icon_padding": [
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "show_text": true,
+                                        "text_type": 1,
+                                        "name": "文字在图标内",
+                                        "font_size": 22,
+                                        "text_padding": [
+                                            60,
+                                            -15,
+                                            0,
+                                            0
+                                        ],
+                                        "font_color": "#46F6FF",
+                                        "auto_wrap": false
+                                    },
+                                    "show_cone": false,
+                                    "cone_info": {
+                                        "scale": [
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "color": "#46F6FF",
+                                        "offset": [
+                                            0,
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    "show_flow": false,
+                                    "flow_info": {
+                                        "amount": 3,
+                                        "rate": 0.5,
+                                        "color": "#46F6FF",
+                                        "luminous_intensity": 2,
+                                        "opacity": 0.8,
+                                        "scale": 2
+                                    },
+                                    "shake_speed": 0.5,
+                                    "detail_info": {
+                                        "size": [
+                                            300,
+                                            500
+                                        ],
+                                        "offset": [
+                                            210,
+                                            0
+                                        ],
+                                        "url": "https://www.baidu.com",
+                                        "data": "{}"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "example_name": "添加/修改POI(文字在图标外)",
+                        "example_data": {
+                            "pois": [
+                                {
+                                    "id": "Poi2",
+                                    "type": "重要点位",
+                                    "position": [
+                                        0,
+                                        0,
+                                        2000
+                                    ],
+                                    "position_type": 0,
+                                    "show_range": [
+                                        0,
+                                        0
+                                    ],
+                                    "povit": [
+                                        0.3,
+                                        0
+                                    ],
+                                    "icon_info": {
+                                        "size": 0.4,
+                                        "show_icon": true,
+                                        "icon_default": "UI\\T_UI_Icon_JZ_Default.png",
+                                        "icon_active": "UI\\T_UI_Icon_JZ_Active.png",
+                                        "icon_padding": [
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "show_text": true,
+                                        "text_bg_default": "UI\\T_UI_Icon_Text_Default.png",
+                                        "text_bg_active": "UI\\T_UI_Icon_Text_Active.png",
+                                        "text_type": 0,
+                                        "name": "文字在图标外",
+                                        "font_size": 16,
+                                        "text_padding": [
+                                            -9,
+                                            8,
+                                            0,
+                                            0
+                                        ],
+                                        "font_color": "#46F6FF"
+                                    },
+                                    "show_cone": false,
+                                    "cone_info": {
+                                        "scale": [
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "color": "#46F6FF",
+                                        "offset": [
+                                            0,
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    "show_flow": false,
+                                    "flow_info": {
+                                        "amount": 3,
+                                        "rate": 0.5,
+                                        "color": "#46F6FF",
+                                        "luminous_intensity": 2,
+                                        "opacity": 0.8,
+                                        "scale": 2
+                                    },
+                                    "shake_speed": 0.5,
+                                    "detail_info": {
+                                        "size": [
+                                            300,
+                                            500
+                                        ],
+                                        "offset": [
+                                            200,
+                                            0
+                                        ],
+                                        "url": "https://www.baidu.com",
+                                        "data": "{}"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "example_name": "添加/修改POI(扩散圈)",
+                        "example_data": {
+                            "pois": [
+                                {
+                                    "id": "Poi3",
+                                    "type": "区域",
+                                    "position": [
+                                        0,
+                                        0,
+                                        3000
+                                    ],
+                                    "position_type": 0,
+                                    "show_range": [
+                                        0,
+                                        10000
+                                    ],
+                                    "povit": [
+                                        1,
+                                        0.5
+                                    ],
+                                    "icon_info": {
+                                        "size": 0.4,
+                                        "show_icon": true,
+                                        "icon_default": "UI\\T_UI_POI_LJZ.png",
+                                        "icon_padding": [
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "show_text": false
+                                    },
+                                    "show_cone": false,
+                                    "cone_info": {
+                                        "scale": [
+                                            0.1,
+                                            0.1,
+                                            1
+                                        ],
+                                        "color": "#FFD129",
+                                        "offset": [
+                                            0,
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    "show_flow": true,
+                                    "flow_info": {
+                                        "amount": 3,
+                                        "rate": 0.5,
+                                        "color": "#FFD129",
+                                        "luminous_intensity": 2,
+                                        "opacity": 0.8,
+                                        "scale": 10
+                                    },
+                                    "shake_speed": 0,
+                                    "detail_info": {
+                                        "size": [
+                                            300,
+                                            500
+                                        ],
+                                        "offset": [
+                                            300,
+                                            0
+                                        ],
+                                        "url": "",
+                                        "data": "{}"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "example_name": "添加/修改POI(默认图标)",
+                        "example_data": {
+                            "pois": [
+                                {
+                                    "id": "Poi4",
+                                    "type": "重要点位",
+                                    "position": [
+                                        0,
+                                        0,
+                                        4000
+                                    ],
+                                    "position_type": 0,
+                                    "show_range": [
+                                        0,
+                                        50000
+                                    ],
+                                    "povit": [
+                                        0.2,
+                                        0
+                                    ],
+                                    "icon_info": {
+                                        "size": 0.6,
+                                        "show_icon": true,
+                                        "icon_padding": [
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "show_text": true,
+                                        "text_type": 1,
+                                        "name": "默认图标",
+                                        "font_size": 30,
+                                        "text_padding": [
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "font_color": "#46F6FF"
+                                    },
+                                    "show_cone": false,
+                                    "cone_info": {
+                                        "scale": [
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "color": "#46F6FF",
+                                        "offset": [
+                                            0,
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    "show_flow": false,
+                                    "flow_info": {
+                                        "amount": 3,
+                                        "rate": 0.5,
+                                        "color": "#46F6FF",
+                                        "luminous_intensity": 2,
+                                        "opacity": 0.8,
+                                        "scale": 2
+                                    },
+                                    "shake_speed": 0,
+                                    "detail_info": {
+                                        "size": [
+                                            300,
+                                            500
+                                        ],
+                                        "offset": [
+                                            250,
+                                            0
+                                        ],
+                                        "url": "https://www.baidu.com",
+                                        "data": "{}"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "example_name": "添加/修改POI(显示锥体)",
+                        "example_data": {
+                            "pois": [
+                                {
+                                    "id": "Poi5",
+                                    "type": "重要点位",
+                                    "position": [
+                                        0,
+                                        0,
+                                        6000
+                                    ],
+                                    "position_type": 0,
+                                    "show_range": [
+                                        0,
+                                        50000
+                                    ],
+                                    "povit": [
+                                        0.213333,
+                                        0
+                                    ],
+                                    "icon_info": {
+                                        "size": 0.8,
+                                        "show_icon": true,
+                                        "icon_default": "UI\\T_UI_POIIcon_01.png",
+                                        "icon_active": "UI\\T_UI_POIIcon_02.png",
+                                        "icon_padding": [
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "show_text": true,
+                                        "text_type": 1,
+                                        "name": "显示锥体",
+                                        "font_size": 25,
+                                        "text_padding": [
+                                            40,
+                                            -15,
+                                            0,
+                                            0
+                                        ],
+                                        "font_color": "#46F6FF"
+                                    },
+                                    "show_cone": true,
+                                    "cone_info": {
+                                        "scale": [
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "color": "#46F6FF",
+                                        "offset": [
+                                            0,
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    "show_flow": false,
+                                    "flow_info": {
+                                        "amount": 3,
+                                        "rate": 0.5,
+                                        "color": "#46F6FF",
+                                        "luminous_intensity": 2,
+                                        "opacity": 0.8,
+                                        "scale": 20
+                                    },
+                                    "shake_speed": 0,
+                                    "detail_info": {
+                                        "size": [
+                                            300,
+                                            500
+                                        ],
+                                        "offset": [
+                                            200,
+                                            0
+                                        ],
+                                        "url": "https://www.baidu.com",
+                                        "data": "{}"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "focusPoi",
+                "action_example": [
+                    {
+                        "example_name": "聚焦Poi",
+                        "example_data": {
+                            "id": "poi5",
+                            "distance": 9000,
+                            "pitch": -45,
+                            "yaw": 30,
+                            "time": 1.5
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getPois",
+                "action_example": [
+                    {
+                        "example_name": "获取POI数据",
+                        "example_data": {
+                            "ids": [
+                                "poi2"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getAllPois",
+                "action_example": [
+                    {
+                        "example_name": "获取所有点位数据",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "changePoisVisible",
+                "action_example": [
+                    {
+                        "example_name": "修改可见性",
+                        "example_data": {
+                            "ids": [
+                                "Poi5"
+                            ],
+                            "visible": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeTypePoisVisible",
+                "action_example": [
+                    {
+                        "example_name": "修改类型POI可见性",
+                        "example_data": {
+                            "category": "重要点位",
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllPoisVisible",
+                "action_example": [
+                    {
+                        "example_name": "显隐所有POI",
+                        "example_data": {
+                            "visible": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deletePois",
+                "action_example": [
+                    {
+                        "example_name": "删除POI",
+                        "example_data": {
+                            "ids": [
+                                "poi2"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteTypePois",
+                "action_example": [
+                    {
+                        "example_name": "删除同一类型POI",
+                        "example_data": {
+                            "category": "建筑"
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllPois",
+                "action_example": [
+                    {
+                        "example_name": "删除所有POI",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "spawnPoi",
+                "action_example": [
+                    {
+                        "example_name": "创建特定POI",
+                        "example_data": {
+                            "type": "1"
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "exitSpawnPoi",
+                "action_example": [
+                    {
+                        "example_name": "退出创建POI",
+                        "example_data": {
+                            "type": "1"
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "movePoi",
+                "action_example": [
+                    {
+                        "example_name": "移动POI",
+                        "example_data": {
+                            "move": true
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "radar",
+        "category_zh": "雷达图",
+        "action": [
+            {
+                "action_name": "updateRadars",
+                "action_example": [
+                    {
+                        "example_name": "添加/修改雷达图",
+                        "example_data": {
+                            "radars": [
+                                {
+                                    "id": "radar_01",
+                                    "type": 1,
+                                    "position": [
+                                        0,
+                                        0,
+                                        100
+                                    ],
+                                    "position_type": 0,
+                                    "pixel_color": "#FFD715",
+                                    "speed": 0.1,
+                                    "radius": 30
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeVisibleRadars",
+                "action_example": [
+                    {
+                        "example_name": "显隐雷达图",
+                        "example_data": {
+                            "ids": [
+                                "radar_01"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllVisibleRadars",
+                "action_example": [
+                    {
+                        "example_name": "显隐所有雷达图",
+                        "example_data": {
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteRadars",
+                "action_example": [
+                    {
+                        "example_name": "删除雷达图",
+                        "example_data": {
+                            "ids": [
+                                "radar_01"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllRadars",
+                "action_example": [
+                    {
+                        "example_name": "删除所有雷达图",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getInfoRadars",
+                "action_example": [
+                    {
+                        "example_name": "获取雷达数据",
+                        "example_data": {
+                            "ids": [
+                                "radar_01"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getAllInfoRadars",
+                "action_example": [
+                    {
+                        "example_name": "获取所有雷达数据",
+                        "example_data": {}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "ring",
+        "category_zh": "扩散圈",
+        "action": [
+            {
+                "action_name": "updateRings",
+                "action_example": [
+                    {
+                        "example_name": "添加/修改扩散圈",
+                        "example_data": {
+                            "rings": [
+                                {
+                                    "id": "SR_01",
+                                    "position": [
+                                        -3000,
+                                        0,
+                                        100
+                                    ],
+                                    "position_type": 0,
+                                    "amount": 3,
+                                    "rate": 0.5,
+                                    "color": "#e60611",
+                                    "luminous_Intensity": 10,
+                                    "opacity": 1,
+                                    "scale": 15
+                                },
+                                {
+                                    "id": "SR_02",
+                                    "type": 1,
+                                    "position": [
+                                        -1000,
+                                        0,
+                                        100
+                                    ],
+                                    "position_type": 0,
+                                    "amount": 3,
+                                    "rate": 0.5,
+                                    "color": "#443f99",
+                                    "luminous_Intensity": 10,
+                                    "opacity": 1,
+                                    "scale": 15
+                                },
+                                {
+                                    "id": "SR_03",
+                                    "type": 2,
+                                    "position": [
+                                        1000,
+                                        0,
+                                        100
+                                    ],
+                                    "position_type": 0,
+                                    "amount": 3,
+                                    "rate": 0.5,
+                                    "color": "#4F992B",
+                                    "luminous_Intensity": 10,
+                                    "opacity": 1,
+                                    "scale": 15
+                                },
+                                {
+                                    "id": "SR_04",
+                                    "type": 3,
+                                    "position": [
+                                        3000,
+                                        0,
+                                        100
+                                    ],
+                                    "position_type": 0,
+                                    "amount": 3,
+                                    "rate": 0.5,
+                                    "color": "#009599",
+                                    "luminous_Intensity": 10,
+                                    "opacity": 1,
+                                    "scale": 15
+                                },
+                                {
+                                    "id": "SR_05",
+                                    "type": 4,
+                                    "position": [
+                                        1000,
+                                        2000,
+                                        100
+                                    ],
+                                    "position_type": 0,
+                                    "amount": 3,
+                                    "rate": 0.5,
+                                    "color": "#99902A",
+                                    "luminous_Intensity": 10,
+                                    "opacity": 1,
+                                    "scale": 15
+                                },
+                                {
+                                    "id": "SR_06",
+                                    "type": 5,
+                                    "position": [
+                                        3000,
+                                        2000,
+                                        100
+                                    ],
+                                    "position_type": 0,
+                                    "amount": 3,
+                                    "rate": 0.5,
+                                    "color": "#996A08",
+                                    "luminous_Intensity": 10,
+                                    "opacity": 1,
+                                    "scale": 15
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeVisibleRings",
+                "action_example": [
+                    {
+                        "example_name": "显隐扩散圈",
+                        "example_data": {
+                            "ids": [
+                                "SR_01",
+                                "SR_02"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllVisibleRings",
+                "action_example": [
+                    {
+                        "example_name": "显隐所有扩散圈",
+                        "example_data": {
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteRings",
+                "action_example": [
+                    {
+                        "example_name": "删除扩散圈",
+                        "example_data": {
+                            "ids": [
+                                "SR_01"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllRings",
+                "action_example": [
+                    {
+                        "example_name": "删除所有扩散圈",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getInfoRings",
+                "action_example": [
+                    {},
+                    {
+                        "example_name": "获取扩散圈数据",
+                        "example_data": {
+                            "ids": [
+                                "SR_01"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getAllInfoRings",
+                "action_example": [
+                    {},
+                    {
+                        "example_name": "获取所有扩散圈数据",
+                        "example_data": {}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "savegame",
+        "category_zh": "存档",
+        "action": [
+            {
+                "action_name": "loadSavegame",
+                "action_example": [
+                    {
+                        "example_name": "加载存档",
+                        "example_data": {
+                            "savegame_id": "sav_001"
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "saveGame",
+                "action_example": [
+                    {
+                        "example_name": "保存存档",
+                        "example_data": {}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "spline",
+        "category_zh": "围栏/多边形/运动轨迹/OD线",
+        "action": [
+            {
+                "action_name": "drawFence",
+                "action_example": [
+                    {
+                        "example_name": "绘制围栏(样式一)",
+                        "example_data": {
+                            "type": 0,
+                            "color": "#FF8323",
+                            "backcover": false,
+                            "height": 80
+                        }
+                    },
+                    {
+                        "example_name": "绘制围栏(样式二)",
+                        "example_data": {
+                            "type": 1,
+                            "color": "#FF8323",
+                            "backcover": true,
+                            "height": 100
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "drawPolygon",
+                "action_example": [
+                    {
+                        "example_name": "绘制多边形",
+                        "example_data": {
+                            "color": "#E49400"
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "drawMoveLine",
+                "action_example": [
+                    {
+                        "example_name": "绘制运动轨迹",
+                        "example_data": {
+                            "type": 0,
+                            "color": "#E49400",
+                            "scale": 1,
+                            "speed": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "drawCylinderFence",
+                "action_example": [
+                    {
+                        "example_name": "绘制圆形围栏",
+                        "example_data": {
+                            "type": 1,
+                            "color": "#D63535",
+                            "backcover": false,
+                            "height": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "drawODLine",
+                "action_example": [
+                    {
+                        "example_name": "绘制ODLine线",
+                        "example_data": {
+                            "color": "#45C6FF",
+                            "scale": 2,
+                            "height": 100,
+                            "direction_color": "#FF4200",
+                            "speed": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "createMoveLine",
+                "action_example": [
+                    {
+                        "example_name": "创建/更新运动轨迹",
+                        "example_data": {
+                            "id": "moveline_01",
+                            "color": "#FF0000",
+                            "type": 1,
+                            "speed": 1,
+                            "scale": 10,
+                            "position_type": 0,
+                            "points": [
+                                [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                [
+                                    5000,
+                                    0,
+                                    0
+                                ],
+                                [
+                                    5000,
+                                    10000,
+                                    0
+                                ],
+                                [
+                                    0,
+                                    10000,
+                                    0
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "createFence",
+                "action_example": [
+                    {
+                        "example_name": "创建/更新电子围栏",
+                        "example_data": {
+                            "id": "polygon_01",
+                            "type": 0,
+                            "color": "#E49400",
+                            "backcover": true,
+                            "height": 100,
+                            "position_type": 1,
+                            "points": [
+                                [
+                                    120.64724731445312,
+                                    31.463571548461914,
+                                    0
+                                ],
+                                [
+                                    120.64728546142578,
+                                    31.46323585510254,
+                                    0
+                                ],
+                                [
+                                    120.6478042602539,
+                                    31.463207244873047,
+                                    0
+                                ],
+                                [
+                                    120.64787292480469,
+                                    31.463571548461914,
+                                    0
+                                ],
+                                [
+                                    120.64751434326172,
+                                    31.46358871459961,
+                                    -1.8189894035458565e-12
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "createPolygon",
+                "action_example": [
+                    {
+                        "example_name": "创建/更新多边形",
+                        "example_data": {
+                            "id": "polygon_01",
+                            "color": "#E49400",
+                            "position_type": 1,
+                            "points": [
+                                [
+                                    120.64724731445312,
+                                    31.463571548461914,
+                                    0
+                                ],
+                                [
+                                    120.64728546142578,
+                                    31.46323585510254,
+                                    0
+                                ],
+                                [
+                                    120.6478042602539,
+                                    31.463207244873047,
+                                    0
+                                ],
+                                [
+                                    120.64787292480469,
+                                    31.463571548461914,
+                                    0
+                                ],
+                                [
+                                    120.64751434326172,
+                                    31.46358871459961,
+                                    -1.8189894035458565e-12
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "createCylinderFence",
+                "action_example": [
+                    {
+                        "example_name": "创建/更新圆柱形围栏",
+                        "example_data": {
+                            "id": "CylinderFence_01",
+                            "type": 1,
+                            "color": "#D63535",
+                            "backcover": false,
+                            "height": 20,
+                            "points": [
+                                [
+                                    -5384.466796,
+                                    -2697.775146,
+                                    0
+                                ],
+                                [
+                                    671.453613,
+                                    1418.719604,
+                                    0
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "createODLine",
+                "action_example": [
+                    {
+                        "example_name": "创建/修改ODLine",
+                        "example_data": {
+                            "id": "odline_01",
+                            "color": "#FF0000",
+                            "scale": 2,
+                            "speed": 1,
+                            "height": 30,
+                            "direction_color": "#21FF04",
+                            "position_type": 0,
+                            "points": [
+                                [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                [
+                                    10000,
+                                    10000,
+                                    0
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeMoveLinesVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变运动轨迹显隐",
+                        "example_data": {
+                            "ids": [
+                                "moveline_01",
+                                "moveline_02"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeFencesVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变围栏显隐",
+                        "example_data": {
+                            "ids": [
+                                "fence_01",
+                                "cylinderfence_02"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changePolygonsVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变多边形显隐",
+                        "example_data": {
+                            "ids": [
+                                "polygon_01",
+                                "polygon_02"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeODLinesVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变OD线显隐",
+                        "example_data": {
+                            "ids": [
+                                "odline_01",
+                                "odline_02"
+                            ],
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllMoveLinesVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变所有运动轨迹显隐",
+                        "example_data": {
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllFencesVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变所有围栏显隐",
+                        "example_data": {
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllPolygonsVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变所有多边形显隐",
+                        "example_data": {
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changeAllODLinesVisible",
+                "action_example": [
+                    {
+                        "example_name": "改变所有OD线显隐",
+                        "example_data": {
+                            "visible": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteMovelines",
+                "action_example": [
+                    {
+                        "example_name": "删除运动轨迹",
+                        "example_data": {
+                            "ids": [
+                                "moveline_01",
+                                "moveline_02"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteFences",
+                "action_example": [
+                    {
+                        "example_name": "删除围栏",
+                        "example_data": {
+                            "ids": [
+                                "fence_01",
+                                "cylinderfence_02"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deletePolygons",
+                "action_example": [
+                    {
+                        "example_name": "删除多边形",
+                        "example_data": {
+                            "ids": [
+                                "polygon_01",
+                                "polygon_02"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteODLines",
+                "action_example": [
+                    {
+                        "example_name": "删除OD线",
+                        "example_data": {
+                            "ids": [
+                                "odline_01",
+                                "odline_02"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllMovelines",
+                "action_example": [
+                    {
+                        "example_name": "删除所有运动轨迹",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllFences",
+                "action_example": [
+                    {
+                        "example_name": "删除所有围栏",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllPolygons",
+                "action_example": [
+                    {
+                        "example_name": "删除所有多边形",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "deleteAllDLines",
+                "action_example": [
+                    {
+                        "example_name": "删除所有OD线",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getMoveLinesInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取动线信息",
+                        "example_data": {
+                            "ids": [
+                                "moveline_01",
+                                "moveline_02"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getFencesInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取围栏信息",
+                        "example_data": {
+                            "ids": [
+                                "Fence_CiIYBzep_1687884842",
+                                "CylinderFence_sQJfYc7t_1687885080"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getPolygonsInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取多边形信息",
+                        "example_data": {
+                            "ids": [
+                                "Polygon_OXpoZ4gH_1687880317"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getODLinesInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取OD线信息",
+                        "example_data": {
+                            "ids": [
+                                "ODLine_vIyYh7iI_1687877889"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "getAllMoveLinesInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取所有动线信息",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getAllFencesInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取所有围栏信息",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getAllPolygonsInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取所有多边形信息",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getAllODLinesInfo",
+                "action_example": [
+                    {
+                        "example_name": "获取所有OD线信息",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "exitDraw",
+                "action_example": [
+                    {
+                        "example_name": "退出绘制",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "alongLineMove",
+                "action_example": [
+                    {
+                        "example_name": "沿运动轨迹移动",
+                        "example_data": {
+                            "id": "moveline_01",
+                            "speed": 5
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "stopMoveLine",
+                "action_example": [
+                    {
+                        "example_name": "停止运动轨迹移动",
+                        "example_data": {
+                            "id": "moveline_01"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "project",
+        "category_zh": "项目",
+        "action": [
+            {
+                "action_name": "setEvnTime",
+                "action_example": [
+                    {
+                        "example_name": "设置时间",
+                        "example_data": {
+                            "day_time": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "setWeather",
+                "action_example": []
+            },
+            {
+                "action_name": "playerPoint",
+                "action_example": [
+                    {
+                        "example_name": "势态感知",
+                        "example_data": {
+                            "point_name": "overview"
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "twinDriving",
+                "action_example": [
+                    {
+                        "example_name": "孪生驾驶",
+                        "example_data": {
+                            "is_driving": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "drivingEye",
+                "action_example": []
+            },
+            {
+                "action_name": "roadOverview",
+                "action_example": [
+                    {
+                        "example_name": "道路总览",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "focusRoad",
+                "action_example": []
+            },
+            {
+                "action_name": "runtimeTraffic",
+                "action_example": [
+                    {
+                        "example_name": "实时车流",
+                        "example_data": {
+                            "spawn": true,
+                            "show_widget": false
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "focusVehicle",
+                "action_example": []
+            },
+            {
+                "action_name": "exitVehicle",
+                "action_example": []
+            },
+            {
+                "action_name": "getVehicleList",
+                "action_example": []
+            },
+            {
+                "action_name": "poiVisibleToType",
+                "action_example": [
+                    {
+                        "example_name": "根据类型显示兴趣点",
+                        "example_data": {
+                            "dev_descriptions": [
+                                "road_signs",
+                                "eagle_eye",
+                                "cam",
+                                "lamp_pole",
+                                "RVM",
+                                "signal_machine",
+                                "horn",
+                                "police",
+                                "police_car"
+                            ]
+                        }
+                    },
+                    {
+                        "example_name": "显示警车",
+                        "example_data": {
+                            "dev_descriptions": [
+                                "police",
+                                "police_car"
+                            ]
+                        }
+                    },
+                    {
+                        "example_name": "显示标识智能喇叭",
+                        "example_data": {
+                            "dev_descriptions": [
+                                "road_signs",
+                                "horn"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "visible109Area",
+                "action_example": []
+            },
+            {
+                "action_name": "visibleArea",
+                "action_example": []
+            },
+            {
+                "action_name": "visiblePoiToSZTU",
+                "action_example": []
+            },
+            {
+                "action_name": "cleanEnergy",
+                "action_example": []
+            },
+            {
+                "action_name": "createWarningPoi",
+                "action_example": []
+            },
+            {
+                "action_name": "deleteWarningPoi",
+                "action_example": []
+            },
+            {
+                "action_name": "parkingManage",
+                "action_example": []
+            },
+            {
+                "action_name": "initGame",
+                "action_example": [
+                    {
+                        "example_name": "初始化",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "getPointToScene",
+                "action_example": [
+                    {
+                        "example_name": "取点(快捷键G)",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "updatePoi",
+                "action_example": []
+            },
+            {
+                "action_name": "blockAnyKeys",
+                "action_example": [
+                    {
+                        "example_name": "屏蔽所有按键",
+                        "example_data": {
+                            "open": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "resultLoading",
+                "action_example": []
+            },
+            {
+                "action_name": "realtimeRoadConditions",
+                "action_example": [
+                    {
+                        "example_name": "显隐实时路况",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "eventFocus",
+                "action_example": [
+                    {
+                        "example_name": "聚焦事件",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "eventContingencyPlan",
+                "action_example": [
+                    {
+                        "example_name": "应急预案",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "callPersons",
+                "action_example": [
+                    {
+                        "example_name": "通知人员",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "roadInspection",
+                "action_example": [
+                    {
+                        "example_name": "巡检",
+                        "example_data": {
+                            "play": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "replayRoad",
+                "action_example": [
+                    {
+                        "example_name": "继续播放",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "trafficAnalyses",
+                "action_example": [
+                    {
+                        "example_name": "交通结构化分析",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "eventShow",
+                "action_example": []
+            },
+            {
+                "action_name": "eventMap",
+                "action_example": [
+                    {
+                        "example_name": "事件分布图",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "setSignText",
+                "action_example": [
+                    {
+                        "example_name": "设置标识牌",
+                        "example_data": {
+                            "signs": [
+                                {
+                                    "id": "BP_Poi_RoadSigns_SZ6",
+                                    "content": "前方出现拥堵\n请减速慢性"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "congestionShow",
+                "action_example": [
+                    {
+                        "example_name": "显隐拥堵兴趣点",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "congestionFocus",
+                "action_example": [
+                    {
+                        "example_name": "聚焦拥堵",
+                        "example_data": {}
+                    }
+                ]
+            },
+            {
+                "action_name": "congestionStart",
+                "action_example": [
+                    {
+                        "example_name": "拥堵预案",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "limitDrive",
+                "action_example": [
+                    {
+                        "example_name": "限制行驶",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "simulatedTraffic",
+                "action_example": [
+                    {
+                        "example_name": "仿真交通",
+                        "example_data": {
+                            "start": true,
+                            "avg_speed": 20,
+                            "avg_num": 5
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "remoteDriving",
+                "action_example": [
+                    {
+                        "example_name": "远程驾驶",
+                        "example_data": {
+                            "start": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "showBuild",
+                "action_example": [
+                    {
+                        "example_name": "突显重点建筑",
+                        "example_data": {
+                            "show": true
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "selectFloor",
+                "action_example": [
+                    {
+                        "example_name": "选择/切换/打开楼层",
+                        "example_data":
+                        {
+                            "floor_id": 0
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "poi3d",
+        "category_zh": "3D兴趣点",
+        "action": [
+            {
+                "action_name": "update3DPois",
+                "action_example": [
+                    {
+                        "example_name": "创建3DPOI",
+                        "example_data": {
+                            "pois": [
+                                {
+                                    "type": 0,
+                                    "position": [
+                                        0,
+                                        0,
+                                        100
+                                    ],
+                                    "mesh_info": [
+                                        {
+                                            "color": [
+                                                1,
+                                                0.28125,
+                                                0.004375,
+                                                16
+                                            ],
+                                            "opacity": 1,
+                                            "scale_speed": 0.5,
+                                            "rotate_speed": 0.5
+                                        },
+                                        {
+                                            "color": [
+                                                1,
+                                                0,
+                                                0,
+                                                16
+                                            ],
+                                            "opacity": 1,
+                                            "directed_motion_speed": 0.5,
+                                            "directed_motion_strength": 5,
+                                            "rotate_speed": 0.8
+                                        }
+                                    ],
+                                    "widget_visible": true,
+                                    "widget": {
+                                        "name": "这是个3DPoi"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "action_name": "changePoisVisible",
+                "action_example": []
+            },
+            {
+                "action_name": "changeTypePoisVisible",
+                "action_example": []
+            },
+            {
+                "action_name": "changeAllPoisVisible",
+                "action_example": []
+            },
+            {
+                "action_name": "deletePois",
+                "action_example": []
+            },
+            {
+                "action_name": "deleteTypePois",
+                "action_example": []
+            },
+            {
+                "action_name": "deleteAllPois",
+                "action_example": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,121 @@
+{
+  "project": {
+    "selectFloor": {
+      "floor_id": {
+        "description": "楼层选择：0=第一层，1=第二层，2=整栋建筑",
+        "type": "integer",
+        "default": 0
+      }
+    },
+    "setEvnTime": {
+      "day_time": {
+        "description": "将24小时时间映射为0-2399",
+        "type": "integer",
+        "min": 0,
+        "max": 2399
+      }
+    },
+    "setWeather": {
+      "weather_type": {
+        "description": "天气类型：0=晴天，1=多云，2=雨天，3=雪天",
+        "type": "integer"
+      }
+    }
+  },
+  "camera": {
+    "transformCamera": {
+      "position": {
+        "description": "相机位置 [x, y, z]，单位为厘米",
+        "type": "array"
+      },
+      "rotation": {
+        "description": "相机旋转 [pitch, yaw, roll]，单位为度",
+        "type": "array"
+      },
+      "time": {
+        "description": "移动动画时间，单位为秒",
+        "type": "number"
+      }
+    },
+    "rotateCamera": {
+      "pitch": {
+        "description": "俯仰角，正值向下看，负值向上看，单位为度",
+        "type": "number"
+      },
+      "yaw": {
+        "description": "偏航角，正值向右转，负值向左转，单位为度",
+        "type": "number"
+      }
+    }
+  },
+  "actor": {
+    "focusActor": {
+      "id": {
+        "description": "要聚焦的对象ID或名称",
+        "type": "string"
+      },
+      "distance": {
+        "description": "相机与目标的距离，单位为厘米",
+        "type": "number"
+      },
+      "pitch": {
+        "description": "俯仰角度，单位为度",
+        "type": "number"
+      },
+      "yaw": {
+        "description": "偏航角度，单位为度",
+        "type": "number"
+      },
+      "time": {
+        "description": "移动动画时间，单位为秒",
+        "type": "number"
+      }
+    },
+    "changeActorVisible": {
+      "ids": {
+        "description": "对象ID或名称数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示：true=显示，false=隐藏",
+        "type": "boolean"
+      }
+    }
+  },
+  "heatmap": {
+    "createHeatMap": {
+      "id": {
+        "description": "热力图唯一标识符",
+        "type": "string"
+      },
+      "radius": {
+        "description": "热力点半径",
+        "type": "number"
+      }
+    }
+  },
+  "poi": {
+    "updatePois": {
+      "pois": {
+        "description": "POI点数组，每个包含id、position、title等属性",
+        "type": "array"
+      }
+    }
+  },
+  "common": {
+    "playerSpeed": {
+      "speed": {
+        "description": "移动速度倍率，默认为1.0",
+        "type": "number"
+      }
+    }
+  },
+  "map": {
+    "loadMap": {
+      "map_id": {
+        "description": "地图ID或名称",
+        "type": "string"
+      }
+    }
+  }
+}
