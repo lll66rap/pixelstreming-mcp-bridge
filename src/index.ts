@@ -425,8 +425,10 @@ function sendCommandViaSSE(
  * 支持两种格式：
  * 1. 标准格式：{commandId: 'xxx', result: {...}}
  * 2. 老项目格式：{message: '初始化完成'}（自动匹配最近命令）
+ *
+ * @returns true 表示响应已处理，false 表示未找到匹配的命令
  */
-function handleResponse(response: { commandId: string; result?: unknown; error?: string; message?: string }): void {
+function handleResponse(response: { commandId: string; result?: unknown; error?: string; message?: string }): boolean {
   const { commandId, result, error, message } = response;
 
   let pending: PendingCommand | undefined;
@@ -435,8 +437,12 @@ function handleResponse(response: { commandId: string; result?: unknown; error?:
     // 标准格式：通过 commandId 匹配
     pending = pendingCommands.get(commandId);
     if (!pending) {
-      log.warn(`Received response for unknown commandId: ${commandId}`);
-      return;
+      log.warn(`Received response for unknown commandId: ${commandId}, pending commands: ${pendingCommands.size}`);
+      // 列出所有待处理的 commandId 用于调试
+      if (pendingCommands.size > 0) {
+        log.debug(`Pending commandIds: ${Array.from(pendingCommands.keys()).join(', ')}`);
+      }
+      return false;  // 返回 false 表示未处理
     }
   } else {
     // 老项目格式：匹配最近的待处理命令
@@ -447,7 +453,7 @@ function handleResponse(response: { commandId: string; result?: unknown; error?:
       log.info(`Legacy format response, matched to latest pending command: ${pending.commandId}`);
     } else {
       log.warn('Received legacy format response but no pending commands');
-      return;
+      return false;  // 返回 false 表示未处理
     }
   }
 
@@ -461,6 +467,8 @@ function handleResponse(response: { commandId: string; result?: unknown; error?:
     const responseResult = result || (message ? { message } : response);
     pending.resolve(responseResult);
   }
+
+  return true;  // 返回 true 表示已处理
 }
 
 /**
@@ -552,9 +560,10 @@ function createHttpServer(port: number): void {
         try {
           const response = JSON.parse(body);
           log.debug(`Received response: ${JSON.stringify(response)}`);
-          handleResponse(response);
+          const handled = handleResponse(response);
+          // 始终发送 HTTP 响应，即使找不到匹配的命令
           res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ status: 'ok' }));
+          res.end(JSON.stringify({ status: 'ok', handled }));
         } catch (err) {
           log.error('Failed to parse response:', err);
           res.writeHead(400, { 'Content-Type': 'application/json' });
