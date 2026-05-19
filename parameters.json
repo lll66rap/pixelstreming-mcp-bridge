@@ -16,21 +16,240 @@
       }
     },
     "setWeather": {
-      "weather_type": {
-        "description": "天气类型：0=晴天，1=多云，2=雨天，3=雪天",
+      "weather": {
+        "description": "天气类型：0=晴天，1=少云，2=多云，3=阴天，4=雾天，5=小雨，6=中雨/大雨，7=暴雨/雷暴雨/雷雨，8=小雪，9=中/大雪，10=暴雪/大暴雪/暴风雪，11=预设/默认",
         "type": "integer"
+      }
+    },
+    "playerPoint": {
+      "point_name": {
+        "description": "定位/跳转到XX。初始点或快捷点名称，聚焦路口：太阳路-taiyangroad;相城大道-xiangchengdaodao;蠡太路-litairoad;青龙港路-qinglonggangroad;南天成路-nantianchengroad;相融路-xiangrongroad;太阳路 - 相城大道-taiyang-xiangchengdadao;蠡太路 - 相城大道-xiangchengdadao-litai;蠡太路 - 相融路-litai-xiangrong;相城大道-青龙港路-xiangchengdadao-qinglonggang;相城大道-南天成路-xiangchengdadao-nantiancheng;相融路-青龙港路-xiangrong-qinglonggang;相融路 - 南天成路-xiangrong-nantiancheng。重点建筑：清华大学苏州汽车研究院-suyanyuan;Tesla-tesla;吾悦广场-wuyue;苏州高铁之心-gaotiezhixin;苏州星俪酒店-xingli;Momenta-momenta;苏州港口发展大厦-gangkou;领寓商务广场-lingyu;圆融购物中心-yuanrong;智高商务广场-zhigao;天成信息大厦-tcxinxi;碧桂园-biguiyuan;合景万汇大厦-hejingwanhui;清华紫光大厦-qinghuaziguang;高融大厦-gaorong;金科大酒店-jinke;天成时代商务广场-tcshidai;芯汇湖大厦-xinhuihu;苏州相融大厦-szxiangrong;苏州高铁大厦-daotiedasha;苏州高铁北站-gaotiebei;226地块-area226;清华大学苏州科创园-kechuangyuan",
+        "type": "string"
+      }
+    },
+    "twinDriving": {
+      "description": "启动孪生驾驶模式",
+      "is_driving": {
+        "description": "is_driving参数",
+        "type": "boolean"
+      }
+    },
+    "drivingEye": {
+      "description": "切换到驾驶视角",
+      "first_person": {
+        "description": "first_person参数",
+        "type": "boolean"
+      }
+    },
+    "roadOverview": {
+      "description": "显示所有道路",
+      "show": {
+        "description": "show参数",
+        "type": "boolean"
+      }
+    },
+    "runtimeTraffic": {
+      "description": "显示实时车流",
+      "spawn": {
+        "description": "spawn参数",
+        "type": "boolean"
+      }
+    },
+    "poiVisibleToType": {
+      "type": {
+        "description": "POI类型：雷视一体机-RVM;高空鹰眼-eagle_eye;视频监控-cam;智慧灯杆-lamp_pole;信息提示板-road_signs;交通信号灯-signal_machine;警察-police;警车-police_car",
+        "type": "string"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "initGame": {
+      "description": "初始化游戏"
+    },
+    "getPointToScene": {
+      "description": "取点模式（快捷键G）"
+    },
+    "blockAnyKeys": {
+      "open": {
+        "description": "是否屏蔽所有按键",
+        "type": "boolean"
+      }
+    },
+    "realtimeRoadConditions": {
+      "show": {
+        "description": "是否显示实时路况",
+        "type": "boolean"
+      }
+    },
+    "eventShow": {
+      "show": {
+        "description": "是否显示车祸",
+        "type": "boolean"
+      }
+    },
+    "eventFocus": {
+      "description": "聚焦到事件现场",
+      "show": {
+        "description": "show参数",
+        "type": "boolean"
+      }
+    },
+    "eventContingencyPlan": {
+      "description": "启动事件应急预案",
+      "show": {
+        "description": "show参数",
+        "type": "boolean"
+      }
+    },
+    "callPersons": {
+      "description": "通知相关部门人员"
+    },
+    "roadInspection": {
+      "description": "启动道路巡检",
+      "play": {
+        "description": "play参数",
+        "type": "boolean"
+      }
+    },
+    "replayRoad": {
+      "description": "继续道路巡检"
+    },
+    "trafficAnalyses": {
+      "description": "显示交通结构化分析",
+      "show": {
+        "description": "show参数",
+        "type": "boolean"
+      }
+    },
+    "eventMap": {
+      "description": "显示交通事件分布图",
+      "show": {
+        "description": "show参数",
+        "type": "boolean"
+      }
+    },
+    "setSignText": {
+      "id": {
+        "description": "标识牌ID",
+        "type": "string"
+      },
+      "content": {
+        "description": "标识牌文本内容",
+        "type": "string"
+      }
+    },
+    "congestionShow": {
+      "description": "开启事件预演"
+    },
+    "congestionFocus": {
+      "description": "聚焦到拥堵事件地点"
+    },
+    "congestionStart": {
+      "description": "启动拥堵事件演习",
+      "show": {
+        "description": "show参数",
+        "type": "boolean"
+      }
+    },
+    "limitDrive": {
+      "show": {
+        "description": "是否限制行驶",
+        "type": "boolean"
+      }
+    },
+    "simulatedTraffic": {
+      "start": {
+        "description": "打开/关闭仿真交通",
+        "type": "boolean"
+      },
+      "avg_speed": {
+        "description": "平均速度",
+        "type":"number"
+      },
+      "avg_num": {
+        "description": "平均车辆数",
+        "type":"number"
+      }
+    },
+    "remoteDriving": {
+      "description": "启动远程驾驶",
+      "start": {
+        "description": "start参数",
+        "type": "boolean"
+      }
+    },
+    "showBuild": {
+      "description": "高亮建筑物",
+      "show": {
+        "description": "show参数",
+        "type": "boolean"
       }
     }
   },
   "camera": {
     "transformCamera": {
       "position": {
-        "description": "相机位置 [x, y, z]，单位为厘米",
+        "description": "相机位置 [x, y, z]，position_type = 0 单位为厘米，position_type = 1 xyz中，xy是经度和纬度，z是高度，高度单位是厘米",
         "type": "array"
       },
-      "rotation": {
-        "description": "相机旋转 [pitch, yaw, roll]，单位为度",
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标",
+        "type": "integer"
+      },
+      "pitch": {
+        "description": "俯仰角度，单位为度",
+        "type": "number"
+      },
+      "yaw": {
+        "description": "偏航角度，单位为度",
+        "type": "number"
+      },
+      "distance": {
+        "description": "相机与目标的距离，单位为厘米",
+        "type": "number"
+      },
+      "time": {
+        "description": "移动动画时间，单位为秒",
+        "type": "number"
+      }
+    },
+    "getCameraInfo": {
+      "description": "获取当前镜头信息"
+    },
+    "focusPosition": {
+      "position": {
+        "description": "相机位置 [x, y, z]，position_type = 0 单位为厘米，position_type = 1 xyz中，xy是经度和纬度，z是高度，高度单位是厘米",
         "type": "array"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标",
+        "type": "integer"
+      },
+      "distance": {
+        "description": "相机与目标的距离，单位为厘米，与view不同时存在",
+        "type": "number"
+      },
+      "view_x": {
+        "description": "距离目标点X距离，单位为厘米，与distance不同时存在",
+        "type": "number"
+      },
+      "view_y": {
+        "description": "距离目标点Y距离，单位为厘米，与distance不同时存在",
+        "type": "number"
+      },
+      "view_z": {
+        "description": "距离目标点Z距离，单位为厘米，与distance不同时存在",
+        "type": "number"
+      },
+      "pitch": {
+        "description": "俯仰角度，单位为度",
+        "type": "number"
+      },
+      "yaw": {
+        "description": "偏航角度，单位为度",
+        "type": "number"
       },
       "time": {
         "description": "移动动画时间，单位为秒",
@@ -38,6 +257,18 @@
       }
     },
     "rotateCamera": {
+      "position": {
+        "description": "相机位置 [x, y, z]，position_type = 0 单位为厘米，position_type = 1 xyz中，xy是经度和纬度，z是高度，高度单位是厘米",
+        "type": "array"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标",
+        "type": "integer"
+      },
+      "distance": {
+        "description": "相机与目标的距离，单位为厘米，与view不同时存在",
+        "type": "number"
+      },
       "pitch": {
         "description": "俯仰角，正值向下看，负值向上看，单位为度",
         "type": "number"
@@ -45,6 +276,48 @@
       "yaw": {
         "description": "偏航角，正值向右转，负值向左转，单位为度",
         "type": "number"
+      },
+      "is_loop":{
+        "description": "是否循环",
+        "type": "boolean"
+      },
+      "time": {
+        "description": "旋转一周时间，单位为秒",
+        "type": "number"
+      }
+    },
+    "roamCamera": {
+      "points": {
+        "description": "漫游路径点数组，每个点包含position和duration",
+        "type": "array"
+      },
+      "position": {
+        "description": "相机位置 [x, y, z]，position_type = 0 单位为厘米，position_type = 1 xyz中，xy是经度和纬度，z是高度，高度单位是厘米",
+        "type": "array"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "pitch": {
+        "description": "俯仰角，正值向下看，负值向上看，单位为度",
+        "type": "number"
+      },
+      "yaw": {
+        "description": "偏航角，正值向右转，负值向左转，单位为度",
+        "type": "number"
+      },
+      "time": {
+        "description": "旋转一周时间，单位为秒",
+        "type": "number"
+      },
+      "delay_time": {
+        "description": "停留时间，单位为秒",
+        "type": "number"
+      },
+      "loop": {
+        "description": "是否循环漫游",
+        "type": "boolean"
       }
     }
   },
@@ -80,41 +353,963 @@
         "description": "是否显示：true=显示，false=隐藏",
         "type": "boolean"
       }
-    }
-  },
-  "heatmap": {
-    "createHeatMap": {
+    },
+    "spawnActor": {
+      "type": {
+        "description": "Actor类id,点击鼠标左键添加到场景中",
+        "type": "string"
+      }
+    },
+    "exitSpawnActor": {
+      "description": "退出创建对象模式"
+    },
+    "deleteActors": {
+      "ids": {
+        "description": "要删除的对象ID或名称数组",
+        "type": "array"
+      }
+    },
+    "setActorTransform": {
       "id": {
-        "description": "热力图唯一标识符",
+        "description": "对象ID或名称",
         "type": "string"
       },
-      "radius": {
-        "description": "热力点半径",
-        "type": "number"
-      }
-    }
-  },
-  "poi": {
-    "updatePois": {
-      "pois": {
-        "description": "POI点数组，每个包含id、position、title等属性",
+      "position": {
+        "description": "新位置 [x, y, z]，单位为厘米",
+        "type": "array"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "rotation": {
+        "description": "新旋转 [pitch, yaw, roll]，单位为度",
+        "type": "array"
+      },
+      "scale": {
+        "description": "新缩放 [x, y, z]",
         "type": "array"
       }
     }
   },
   "common": {
     "playerSpeed": {
-      "speed": {
-        "description": "移动速度倍率，默认为1.0",
+      "move_speed": {
+        "description": "移动速度倍率，默认为5.0,范围5-50",
         "type": "number"
+      },
+      "zoom_speed": {
+        "description": "缩放速度倍率，默认为1.0,范围0.1-10",
+        "type": "number"
+      }
+    },
+    "setResolutionSize": {
+      "x": {
+        "description": "分辨率宽度（像素）",
+        "type": "integer"
+      },
+      "y": {
+        "description": "分辨率高度（像素）",
+        "type": "integer"
+      }
+    },
+    "screenMessages": {
+      "enable": {
+        "description": "是否显示屏幕log",
+        "type": "boolean"
+      }
+    },
+    "axisType": {
+      "type": {
+        "description": "变换功能类型,0-选择对象；1-选择并平移对象；2-选择并旋转对象；3-选择并缩放对象",
+        "type": "integer"
+      }
+    },
+    "setCRS": {
+      "type": {
+        "description": "地理坐标系统,0-WGS84;1-GCJ02;2-BD09",
+        "type": "integer"
+      }
+    },
+    "executeCommand": {
+      "command": {
+        "description": "要执行的命令字符串",
+        "type": "string"
+      }
+    }
+  },
+  "dimenssion": {
+    "dimenssion": {
+      "axis": {
+        "description": "测量方向：0-X轴;1-Y轴;2-Z轴;3-XY面;4-XYZ",
+        "type": "integer"
+      }
+    },
+    "deleteDimenssion": {
+      "description": "删除当前测量"
+    },
+    "changeUnits": {
+      "units": {
+        "description": "测量单位：0-厘米;1-米;2-英寸",
+        "type": "integer"
+      }
+    }
+  },
+  "heatmap": {
+    "drawHeatMap": {
+      "id": {
+        "description": "热力图唯一标识符，默认随机生成",
+        "type": "string"
+      },
+      "position": {
+        "description": "位置 [x, y, z]，单位为厘米",
+        "type": "array"
+      },
+      "scale": {
+        "description": "大小 [x, y, z]，单位为厘米,默认[10, 10, 10]",
+        "type": "array"
+      },
+      "radius": {
+        "description": "热力点半径，单位为像素，默认64",
+        "type": "number"
+      },
+      "is3d": {
+        "description": "是否3d热力图  true=3d热力图，false=2d热力图",
+        "type": "boolean"
+      },
+      "resolution": {
+        "description": "热力图分辨率，单位为像素，表示热力图纹理的宽高，默认为1024",
+        "type": "integer"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "strength": {
+        "description": "热力点强度，默认为0.1，范围0.1-1",
+        "type": "number"
+      }
+    },
+    "createHeatMap": {
+      "id": {
+        "description": "热力图唯一标识符，默认随机生成",
+        "type": "string"
+      },
+      "position": {
+        "description": "位置 [x, y, z]，单位为厘米",
+        "type": "array"
+      },
+      "scale": {
+        "description": "大小 [x, y, z]，单位为厘米,默认[10, 10, 10]",
+        "type": "array"
+      },
+      "radius": {
+        "description": "热力点半径，单位为像素，默认64",
+        "type": "number"
+      },
+      "is3d": {
+        "description": "是否3d热力图  true=3d热力图，false=2d热力图",
+        "type": "boolean"
+      },
+      "resolution": {
+        "description": "热力图分辨率，单位为像素，表示热力图纹理的宽高，默认为1024",
+        "type": "integer"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "strength": {
+        "description": "热力点强度，默认为0.1，范围0.1-1",
+        "type": "number"
+      },
+      "points": {
+        "description": "热力点参数组，每个点包含position、strength、radius属性，position [x, y, z]是热力点坐标，strength为热力点强度，范围0-1，radius为热力点半径",
+        "type": "array"
+      }
+    },
+    "randomHeatMap": {
+      "id": {
+        "description": "热力图唯一标识符，默认随机生成",
+        "type": "string"
+      },
+      "position": {
+        "description": "位置 [x, y, z]，单位为厘米",
+        "type": "array"
+      },
+      "scale": {
+        "description": "大小 [x, y, z]，单位为厘米,默认[10, 10, 10]",
+        "type": "array"
+      },
+      "radius": {
+        "description": "热力点半径，单位为像素，默认64",
+        "type": "number"
+      },
+      "is3d": {
+        "description": "是否3d热力图  true=3d热力图，false=2d热力图",
+        "type": "boolean"
+      },
+      "resolution": {
+        "description": "热力图分辨率，单位为像素，表示热力图纹理的宽高，默认为1024",
+        "type": "integer"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "strength": {
+        "description": "热力点强度，默认为0.1，范围0.1-1",
+        "type": "number"
+      },
+      "num": {
+        "description": "热力点数量，默认为1000",
+        "type": "integer"
+      }
+    },
+    "clearHeatMaps": {
+      "ids": {
+        "description": "要清除数据的热力图ID数组",
+        "type": "array"
+      }
+    },
+    "clearAllHeatMaps": {
+      "description": "清除所有热力图数据"
+    },
+    "deleteHeatMaps": {
+      "ids": {
+        "description": "要删除的热力图ID数组",
+        "type": "array"
+      }
+    },
+    "deleteAllHeatMaps": {
+      "description": "删除所有热力图"
+    },
+    "exitDrawHeatMap": {
+      "description": "退出绘制热力图模式"
+    },
+    "changeVisibleHeatMaps": {
+      "ids": {
+        "description": "热力图ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeAllVisibleHeatMaps": {
+      "visible": {
+        "description": "是否显示所有热力图",
+        "type": "boolean"
+      }
+    },
+    "getHeatMaps": {
+      "ids": {
+        "description": "要获取数据的热力图ID数组",
+        "type": "array"
       }
     }
   },
   "map": {
     "loadMap": {
-      "map_id": {
-        "description": "地图ID或名称",
+      "description": "加载地图",
+      "is_cover": {
+        "description": "是否覆盖存档数据，true=覆盖，false=不覆盖，默认false",
+        "type": "boolean"
+      },
+      "savegame_id": {
+        "description": "存档ID，为空时随机生成一个唯一ID",
         "type": "string"
+      },
+      "area_block": {
+        "description": "加载区域块ID数组，默认为空表示加载空场景，地块信息包含：province_id省/直辖市区ID，city_id城市/区ID数组",
+        "type": "array"
+      }
+    }
+  },
+  "poi": {
+    "updatePois": {
+      "pois": {
+        "description": "POI点数组，每个包含id、position [x, y, z]位置、title文字、type类型等属性",
+        "type": "array"
+      }
+    },
+    "focusPoi": {
+      "id": {
+        "description": "POI点ID",
+        "type": "string"
+      },
+      "distance": {
+        "description": "相机与POI的距离，单位为厘米",
+        "type": "number"
+      },
+      "pitch": {
+        "description": "俯仰角度，单位为度",
+        "type": "number"
+      },
+      "yaw": {
+        "description": "偏航角度，单位为度",
+        "type": "number"
+      },
+      "time": {
+        "description": "移动动画时间，单位为秒",
+        "type": "number"
+      }
+    },
+    "getPois": {
+      "ids": {
+        "description": "POI ID数组",
+        "type": "array"
+      }
+    },
+    "getAllPois": {
+      "description": "获取所有POI数据"
+    },
+    "changePoisVisible": {
+      "ids": {
+        "description": "POI ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeTypePoisVisible": {
+      "type": {
+        "description": "POI类型",
+        "type": "string"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeAllPoisVisible": {
+      "visible": {
+        "description": "是否显示所有POI",
+        "type": "boolean"
+      }
+    },
+    "deletePois": {
+      "ids": {
+        "description": "要删除的POI ID数组",
+        "type": "array"
+      }
+    },
+    "deleteTypePois": {
+      "type": {
+        "description": "POI类型",
+        "type": "string"
+      }
+    },
+    "deleteAllPois": {
+      "description": "删除所有POI"
+    },
+    "spawnPoi": {
+      "type": {
+        "description": "POI类型",
+        "type": "string"
+      }
+    },
+    "exitSpawnPoi": {
+      "description": "退出创建POI模式"
+    },
+    "movePoi": {
+      "description": "开启移动POI模式，点击场景中POI点可移动到新位置",
+      "move": {
+        "description": "开启关闭移动模式，true=开启，false=关闭",
+        "type": "boolean"
+      }
+    }
+  },
+  "radar": {
+    "updateRadars": {
+      "radars": {
+        "description": "雷达图数组，每个包含id、position、radius等属性",
+        "type": "array"
+      }
+    },
+    "changeVisibleRadars": {
+      "ids": {
+        "description": "雷达图ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeAllVisibleRadars": {
+      "visible": {
+        "description": "是否显示所有雷达图",
+        "type": "boolean"
+      }
+    },
+    "deleteRadars": {
+      "ids": {
+        "description": "要删除的雷达图ID数组",
+        "type": "array"
+      }
+    },
+    "deleteAllRadars": {
+      "description": "删除所有雷达图"
+    },
+    "getInfoRadars": {
+      "ids": {
+        "description": "雷达图ID数组",
+        "type": "array"
+      }
+    },
+    "getAllInfoRadars": {
+      "description": "获取所有雷达图数据"
+    }
+  },
+  "ring": {
+    "updateRings": {
+      "rings": {
+        "description": "扩散圈数组，每个包含id、position、radius、speed等属性",
+        "type": "array"
+      }
+    },
+    "changeVisibleRings": {
+      "ids": {
+        "description": "扩散圈ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeAllVisibleRings": {
+      "visible": {
+        "description": "是否显示所有扩散圈",
+        "type": "boolean"
+      }
+    },
+    "deleteRings": {
+      "ids": {
+        "description": "要删除的扩散圈ID数组",
+        "type": "array"
+      }
+    },
+    "deleteAllRings": {
+      "description": "删除所有扩散圈"
+    },
+    "getInfoRings": {
+      "ids": {
+        "description": "扩散圈ID数组",
+        "type": "array"
+      }
+    },
+    "getAllInfoRings": {
+      "description": "获取所有扩散圈数据"
+    }
+  },
+  "savegame": {
+    "loadSavegame": {
+      "savegame_id": {
+        "description": "存档ID或名称",
+        "type": "string"
+      }
+    },
+    "saveGame": {
+      "description": "保存当前游戏状态"
+    }
+  },
+  "spline": {
+    "drawFence": {
+      "id": {
+        "description": "围栏唯一标识符，默认随机生成",
+        "type": "string"
+      },
+      "backcover": {
+        "description": "是否有底面，true=有底面，false=无底面",
+        "type": "boolean"
+      },
+      "type": {
+        "description": "样式类型0-4",
+        "type": "integer"
+      },
+      "color": {
+        "description": "颜色（十六进制）",
+        "type": "string"
+      },
+      "height": {
+        "description": "高度，单位米",
+        "type": "number"
+      }
+    },
+    "drawPolygon": {
+      "id": {
+        "description": "多边形唯一标识符，默认随机生成",
+        "type": "string"
+      },
+      "color": {
+        "description": "颜色（十六进制）",
+        "type": "string"
+      }
+    },
+    "drawMoveLine": {
+      "id": {
+        "description": "运动轨迹唯一标识符，默认随机生成",
+        "type": "string"
+      },
+      "scale": {
+        "description": "尺寸",
+        "type": "number"
+      },
+      "type": {
+        "description": "类型0-16",
+        "type": "integer"
+      },
+      "color": {
+        "description": "颜色（十六进制）",
+        "type": "string"
+      },
+      "speed": {
+        "description": "速度",
+        "type": "number"
+      }
+    },
+    "drawCylinderFence": {
+      "id": {
+        "description": "圆形围栏唯一标识符,默认随机生成",
+        "type": "string"
+      },
+      "backcover": {
+        "description": "是否有底面，true=有底面，false=无底面",
+        "type": "boolean"
+      },
+      "type": {
+        "description": "样式类型0-4",
+        "type": "integer"
+      },
+      "color": {
+        "description": "颜色（十六进制）",
+        "type": "string"
+      },
+      "height": {
+        "description": "高度，单位米",
+        "type": "number"
+      }
+    },
+    "drawODLine": {
+      "id": {
+        "description": "OD线唯一标识符,默认随机生成",
+        "type": "string"
+      },
+      "scale": {
+        "description": "尺寸",
+        "type": "number"
+      },
+      "direction_color": {
+        "description": "方向颜色（十六进制）",
+        "type": "string"
+      },
+      "speed": {
+        "description": "速度,负值时为反方向",
+        "type": "number"
+      },
+      "color": {
+        "description": "颜色（十六进制）",
+        "type": "string"
+      },
+      "height": {
+        "description": "高度，单位米",
+        "type": "number"
+      }
+    },
+    "createMoveLine": {
+      "id": {
+        "description": "运动轨迹唯一标识符",
+        "type": "string"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "points": {
+        "description": "轨迹路径点数组",
+        "type": "array"
+      },
+      "color": {
+        "description": "线条颜色（十六进制）",
+        "type": "string"
+      },
+      "type": {
+        "description": "类型0-16",
+        "type": "integer"
+      },
+      "scale": {
+        "description": "尺寸",
+        "type": "number"
+      },
+      "speed": {
+        "description": "速度",
+        "type": "number"
+      }
+    },
+    "createFence": {
+      "id": {
+        "description": "电子围栏唯一标识符",
+        "type": "string"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "points": {
+        "description": "围栏顶点数组",
+        "type": "array"
+      },
+      "color": {
+        "description": "围栏颜色（十六进制）",
+        "type": "string"
+      },
+      "backcover": {
+        "description": "是否有底面，true=有底面，false=无底面",
+        "type": "boolean"
+      },
+      "type": {
+        "description": "样式类型0-4",
+        "type": "integer"
+      },
+      "height": {
+        "description": "高度，单位米",
+        "type": "number"
+      }
+    },
+    "createPolygon": {
+      "id": {
+        "description": "多边形唯一标识符",
+        "type": "string"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+      "points": {
+        "description": "多边形顶点数组",
+        "type": "array"
+      },
+      "color": {
+        "description": "多边形颜色（十六进制）",
+        "type": "string"
+      }
+    },
+    "createCylinderFence": {
+      "id": {
+        "description": "圆柱形围栏唯一标识符",
+        "type": "string"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+       "points": {
+        "description": "圆柱两个顶点位置数组",
+        "type": "array"
+      },
+      "color": {
+        "description": "颜色（十六进制）",
+        "type": "string"
+      },
+      "backcover": {
+        "description": "是否有底面，true=有底面，false=无底面",
+        "type": "boolean"
+      },
+      "type": {
+        "description": "样式类型0-4",
+        "type": "integer"
+      },
+      "height": {
+        "description": "高度，单位米",
+        "type": "number"
+      }
+    },
+    "createODLine": {
+      "id": {
+        "description": "OD线唯一标识符",
+        "type": "string"
+      },
+      "position_type": {
+        "description": "位置类型：0=UE坐标，1=经纬度坐标，默认为0",
+        "type": "integer"
+      },
+       "points": {
+        "description": "起点和终点位置数组",
+        "type": "array"
+      },
+      "color": {
+        "description": "颜色（十六进制）",
+        "type": "string"
+      },
+      "scale": {
+        "description": "尺寸",
+        "type": "number"
+      },
+      "speed": {
+        "description": "速度",
+        "type": "number"
+      },
+      "direction_color": {
+        "description": "方向颜色（十六进制）",
+        "type": "string"
+      }
+    },
+    "changeMoveLinesVisible": {
+      "ids": {
+        "description": "运动轨迹ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeFencesVisible": {
+      "ids": {
+        "description": "围栏ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changePolygonsVisible": {
+      "ids": {
+        "description": "多边形ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeODLinesVisible": {
+      "ids": {
+        "description": "OD线ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeAllMoveLinesVisible": {
+      "visible": {
+        "description": "是否显示所有运动轨迹",
+        "type": "boolean"
+      }
+    },
+    "changeAllFencesVisible": {
+      "visible": {
+        "description": "是否显示所有围栏",
+        "type": "boolean"
+      }
+    },
+    "changeAllPolygonsVisible": {
+      "visible": {
+        "description": "是否显示所有多边形",
+        "type": "boolean"
+      }
+    },
+    "changeAllODLinesVisible": {
+      "visible": {
+        "description": "是否显示所有OD线",
+        "type": "boolean"
+      }
+    },
+    "deleteMovelines": {
+      "ids": {
+        "description": "要删除的运动轨迹ID数组",
+        "type": "array"
+      }
+    },
+    "deleteFences": {
+      "ids": {
+        "description": "要删除的围栏ID数组",
+        "type": "array"
+      }
+    },
+    "deletePolygons": {
+      "ids": {
+        "description": "要删除的多边形ID数组",
+        "type": "array"
+      }
+    },
+    "deleteODLines": {
+      "ids": {
+        "description": "要删除的OD线ID数组",
+        "type": "array"
+      }
+    },
+    "deleteAllMovelines": {
+      "description": "删除所有运动轨迹"
+    },
+    "deleteAllFences": {
+      "description": "删除所有围栏"
+    },
+    "deleteAllPolygons": {
+      "description": "删除所有多边形"
+    },
+    "deleteAllDLines": {
+      "description": "删除所有OD线"
+    },
+    "getMoveLinesInfo": {
+      "ids": {
+        "description": "运动轨迹ID数组",
+        "type": "array"
+      }
+    },
+    "getFencesInfo": {
+      "ids": {
+        "description": "围栏ID数组",
+        "type": "array"
+      }
+    },
+    "getPolygonsInfo": {
+      "ids": {
+        "description": "多边形ID数组",
+        "type": "array"
+      }
+    },
+    "getODLinesInfo": {
+      "ids": {
+        "description": "OD线ID数组",
+        "type": "array"
+      }
+    },
+    "getAllMoveLinesInfo": {
+      "description": "获取所有运动轨迹信息"
+    },
+    "getAllFencesInfo": {
+      "description": "获取所有围栏信息"
+    },
+    "getAllPolygonsInfo": {
+      "description": "获取所有多边形信息"
+    },
+    "getAllODLinesInfo": {
+      "description": "获取所有OD线信息"
+    },
+    "exitDraw": {
+      "description": "退出绘制模式"
+    },
+    "alongLineMove": {
+      "id": {
+        "description": "运动轨迹ID",
+        "type": "string"
+      },
+      "speed": {
+        "description": "移动速度",
+        "type": "number"
+      }
+    },
+    "stopMoveLine": {
+      "id": {
+        "description": "运动轨迹ID",
+        "type": "string"
+      }
+    }
+  },
+  "poi3d": {
+    "update3DPois": {
+      "pois": {
+        "description": "3D POI数组，每个包含id、position、mesh_info等属性",
+        "type": "array"
+      }
+    },
+    "changePoisVisible": {
+      "ids": {
+        "description": "3D POI ID数组",
+        "type": "array"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeTypePoisVisible": {
+      "type": {
+        "description": "3D POI类型",
+        "type": "string"
+      },
+      "visible": {
+        "description": "是否显示",
+        "type": "boolean"
+      }
+    },
+    "changeAllPoisVisible": {
+      "visible": {
+        "description": "是否显示所有3D POI",
+        "type": "boolean"
+      }
+    },
+    "deletePois": {
+      "ids": {
+        "description": "要删除的3D POI ID数组",
+        "type": "array"
+      }
+    },
+    "deleteTypePois": {
+      "type": {
+        "description": "3D POI类型",
+        "type": "string"
+      }
+    },
+    "deleteAllPois": {
+      "description": "删除所有3D POI"
+    },
+    "getPois": {
+      "ids": {
+        "description": "3D POI ID数组",
+        "type": "array"
+      }
+    },
+    "getTypePois": {
+      "type": {
+        "description": "3D POI类型",
+        "type": "string"
+      }
+    },
+    "getAllPois": {
+      "description": "获取所有3D POI数据"
+    }
+  },
+  "DLSS": {
+    "selection_mode": {
+      "mode": {
+        "description": "选择模式,0-默认模式；1-DLSS模式；2-仅NIS",
+        "type": "integer"
+      }
+    },
+    "selection_dlss_mode": {
+      "mode": {
+        "description": "DLSS 模式：0-Off；1-Auto; 2-Ultra Quality; 3-Quality; 4-Balanced；5-Performance；6-Ultra Performance",
+        "type": "integer"
+      }
+    },
+    "selection_nis_mode": {
+      "mode": {
+        "description": "NIS 模式: 0-Off；1-Ultra Quality；2-Quality; 3-Balanced；4-Performance；5-Custom",
+        "type": "integer"
+      }
+    },
+    "set_nis_sharpness": {
+      "sharpness": {
+        "description": "NIS 锐度值 (0-1)",
+        "type": "number",
+        "min": 0,
+        "max": 1
+      }
+    },
+    "set_ray_tracing": {
+      "enable": {
+        "description": "是否启用光线追踪",
+        "type": "boolean"
       }
     }
   }

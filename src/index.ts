@@ -1,7 +1,7 @@
 // src/index.ts
 import { readFileSync, existsSync } from 'fs';
 import { createServer, IncomingMessage, ServerResponse } from 'http';
-import { Config, ApiCommand, ToolDefinition, ParsedToolName } from './types';
+import { Config, ApiCommand, ToolDefinition, ParsedToolName, ParamDescriptionMeta } from './types';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
@@ -71,7 +71,7 @@ function loadConfig(): Config {
   return {
     apiJsonPath,
     pixelStreamingUrl: process.env.PIXEL_STREAMING_URL || 'http://localhost:8080',
-    commandTimeout: parseInt(process.env.COMMAND_TIMEOUT || '30000', 10),
+    commandTimeout: parseInt(process.env.COMMAND_TIMEOUT || '60000', 10),
     logLevel: (process.env.LOG_LEVEL as Config['logLevel']) || 'info',
   };
 }
@@ -184,7 +184,7 @@ function loadApiCommands(apiJsonPath: string): ApiCommand[] {
 }
 
 // 参数说明缓存
-let parameterDescriptions: Record<string, Record<string, Record<string, unknown>>> = {};
+let parameterDescriptions: Record<string, Record<string, Record<string, ParamDescriptionMeta>>> = {};
 
 /**
  * 加载参数说明文件
@@ -207,15 +207,14 @@ function loadParameterDescriptions(): void {
 /**
  * 获取参数说明
  */
-function getParamDescription(category: string, actionName: string, paramName: string): string | undefined {
+function getParamDescription(category: string, actionName: string, paramName: string): ParamDescriptionMeta | undefined {
   const categoryParams = parameterDescriptions[category];
   if (!categoryParams) return undefined;
 
   const actionParams = categoryParams[actionName];
   if (!actionParams) return undefined;
 
-  const paramInfo = actionParams[paramName] as { description?: string } | undefined;
-  return paramInfo?.description;
+  return actionParams[paramName];
 }
 
 /**
@@ -263,63 +262,113 @@ function inferSchema(value: unknown): Record<string, unknown> {
 }
 
 /**
- * 从 ApiCommand 生成 MCP Tool 定义
+ * 从 ApiCommand 生成 MCP Tool 定义（按 category 分组，减少工具数量）
  */
 function generateTools(commands: ApiCommand[]): ToolDefinition[] {
-  const tools: ToolDefinition[] = [];
+  const categoryMap = new Map<string, { cmd: ApiCommand; actions: ApiCommand['action'][0][] }>();
 
   for (const cmd of commands) {
-    for (const action of cmd.action) {
-      const toolName = `ue5_${cmd.category}_${action.action_name}`;
-      const description = `[${cmd.category_zh}] ${action.action_name}`;
+    if (!categoryMap.has(cmd.category)) {
+      categoryMap.set(cmd.category, { cmd, actions: [] });
+    }
+    categoryMap.get(cmd.category)!.actions.push(...cmd.action);
+  }
 
-      let properties: Record<string, unknown> = {};
+  const tools: ToolDefinition[] = [];
+
+  for (const [category, group] of categoryMap) {
+    const toolName = `ue5_${category}`;
+
+    const actionLines: string[] = [];
+    const allProperties: Record<string, unknown> = {};
+    const allRequired: string[] = ['action'];
+    const paramTypeMap = new Map<string, string>();
+
+    for (const action of group.actions) {
+      const paramNames: string[] = [];
 
       if (action.action_example.length > 0) {
         const exampleData = action.action_example[0].example_data;
-        const inferredSchema = inferSchema(exampleData);
-        const inferredProps = (inferredSchema.properties || {}) as Record<string, unknown>;
+        if (exampleData && typeof exampleData === 'object') {
+          for (const [paramName, paramValue] of Object.entries(exampleData)) {
+          paramNames.push(paramName);
 
-        // 为每个属性添加说明
-        for (const [paramName, paramSchema] of Object.entries(inferredProps)) {
-          const paramDesc = getParamDescription(cmd.category, action.action_name, paramName);
+          const paramMeta = getParamDescription(category, action.action_name, paramName);
+          const inferredSchema = inferSchema(paramValue) as Record<string, unknown>;
+          const inferredType = String(inferredSchema.type || '');
 
-          if (typeof paramSchema === 'object' && paramSchema !== null) {
-            properties[paramName] = {
-              ...paramSchema,
-              description: paramDesc || `${paramName} 参数`,
+          const existingType = paramTypeMap.get(paramName);
+          if (existingType && existingType !== inferredType) {
+            const disambiguatedName = `${paramName}_${action.action_name}`;
+            log.warn(`Parameter '${paramName}' type conflict in '${category}': existing '${existingType}' vs '${inferredType}' for '${action.action_name}', using '${disambiguatedName}'`);
+            allProperties[disambiguatedName] = {
+              ...inferredSchema,
+              description: paramMeta?.description || `[${action.action_name}] ${paramName}`,
             };
+            if (paramMeta?.required) {
+              allRequired.push(disambiguatedName);
+            }
           } else {
-            properties[paramName] = paramSchema;
+            if (!existingType) {
+              paramTypeMap.set(paramName, inferredType);
+            }
+            const existingProp = allProperties[paramName] as Record<string, unknown> | undefined;
+            if (existingProp) {
+              const currentDesc = String(existingProp.description || '');
+              existingProp.description = `${currentDesc}\n也可用于: ${action.action_name}`;
+            } else {
+              allProperties[paramName] = {
+                ...inferredSchema,
+                description: paramMeta?.description || `[${action.action_name}] ${paramName}`,
+              };
+            }
+            if (paramMeta?.required && !allRequired.includes(paramName)) {
+              allRequired.push(paramName);
+            }
           }
         }
       }
+      }
 
-      tools.push({
-        name: toolName,
-        description,
-        inputSchema: {
-          type: 'object',
-          properties,
-        },
-      });
+      const actionLine = paramNames.length > 0
+        ? `- ${action.action_name}: 需要参数 ${paramNames.join(', ')}`
+        : `- ${action.action_name}: 无需参数`;
+      actionLines.push(actionLine);
     }
+
+    const description = `[${group.cmd.category_zh}] 所有操作\n\n支持以下操作:\n${actionLines.join('\n')}`;
+
+    tools.push({
+      name: toolName,
+      description,
+      inputSchema: {
+        type: 'object',
+        properties: {
+          action: {
+            type: 'string',
+            enum: [...new Set(group.actions.map(a => a.action_name))],
+            description: '要执行的操作名称',
+          },
+          ...allProperties,
+        },
+        required: allRequired,
+      },
+    });
   }
 
   return tools;
 }
 
 /**
- * 解析 Tool 名称为 category 和 action_name
+ * 解析 Tool 名称为 category
  */
 function parseToolName(toolName: string): ParsedToolName | null {
-  const match = toolName.match(/^ue5_(.+)_(.+)$/);
+  const match = toolName.match(/^ue5_(.+)$/);
   if (!match) {
     return null;
   }
   return {
     category: match[1],
-    actionName: match[2],
   };
 }
 
@@ -727,35 +776,43 @@ function createMcpServer(tools: ToolDefinition[]): Server {
         content: [
           {
             type: 'text',
-            text: `Invalid tool name format: ${name}. Expected format: ue5_{category}_{action_name}`,
+            text: `Invalid tool name format: ${name}. Expected format: ue5_{category}`,
           },
         ],
         isError: true,
       };
     }
 
-    try {
-      const startTime = Date.now();
-      const result = await sendCommandViaSSE(parsed.category, parsed.actionName, args || {});
-      const elapsed = Date.now() - startTime;
-
-      // 构造明确的响应，防止模型重复调用
-      const responseText = [
-        `✅ 命令执行成功`,
-        `命令: ${parsed.category}.${parsed.actionName}`,
-        `耗时: ${elapsed}ms`,
-        `状态: 已完成，无需重复调用`,
-        result ? `结果: ${JSON.stringify(result, null, 2)}` : '',
-      ].filter(Boolean).join('\n');
-
+    const rawArgs = (args || {}) as Record<string, unknown>;
+    const actionName = rawArgs.action as string | undefined;
+    if (!actionName) {
       return {
         content: [
           {
             type: 'text',
-            text: responseText,
+            text: `Missing required parameter 'action'. Valid actions: 查看 tools/list 接口获取完整的操作列表。`,
           },
         ],
+        isError: true,
       };
+    }
+
+    const { action: _, ...actionData } = rawArgs;
+
+    try {
+      const startTime = Date.now();
+      const result = await sendCommandViaSSE(parsed.category, actionName, actionData);
+      const elapsed = Date.now() - startTime;
+
+      const content: Array<{ type: string; text: string }> = [
+        { type: 'text', text: `✅ 命令执行成功` },
+        { type: 'text', text: `命令: ${parsed.category}.${actionName}\n耗时: ${elapsed}ms\n状态: 已完成，无需重复调用` },
+      ];
+      if (result) {
+        content.push({ type: 'text', text: `结果:\n${JSON.stringify(result, null, 2)}` });
+      }
+
+      return { content };
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
       return {
@@ -771,6 +828,29 @@ function createMcpServer(tools: ToolDefinition[]): Server {
   });
 
   return server;
+}
+
+/**
+ * 预热 HTTP 服务器（解决首次请求延迟问题）
+ * 发送测试请求触发 HTTP 服务器初始化
+ */
+async function warmupHttpServer(port: number): Promise<void> {
+  const warmupUrl = `http://127.0.0.1:${port}/health`;
+  console.error(`[INFO] Warming up HTTP server: ${warmupUrl}`);
+
+  try {
+    const startTime = Date.now();
+    const response = await fetch(warmupUrl);
+    const elapsed = Date.now() - startTime;
+
+    if (response.ok) {
+      console.error(`[INFO] HTTP server warmup complete (${elapsed}ms)`);
+    } else {
+      console.error(`[WARN] HTTP server warmup returned ${response.status}`);
+    }
+  } catch (err) {
+    console.error(`[WARN] HTTP server warmup failed:`, err);
+  }
 }
 
 /**
@@ -808,6 +888,9 @@ async function main(): Promise<void> {
   const httpPort = parseInt(process.env.HTTP_PORT || '8080', 10);
   createHttpServer(httpPort);
   console.error(`[INFO] HTTP/SSE server started on port ${httpPort}`);
+
+  // 7.5. 预热 HTTP 服务器（解决首次请求延迟问题）
+  await warmupHttpServer(httpPort);
 
   // 8. 捕获 MCP 连接关闭事件，保持 HTTP 服务运行
   transport.onclose = () => {
