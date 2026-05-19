@@ -832,7 +832,7 @@ function createMcpServer(tools: ToolDefinition[]): Server {
 
 /**
  * 预热 HTTP 服务器（解决首次请求延迟问题）
- * 发送测试请求触发 HTTP 服务器初始化
+ * 发送测试请求触发 HTTP 服务器初始化，并等待事件循环处理
  */
 async function warmupHttpServer(port: number): Promise<void> {
   const warmupUrl = `http://127.0.0.1:${port}/health`;
@@ -851,6 +851,11 @@ async function warmupHttpServer(port: number): Promise<void> {
   } catch (err) {
     console.error(`[WARN] HTTP server warmup failed:`, err);
   }
+
+  // 额外等待，确保事件循环处理完所有 I/O
+  // 这对于防止 MCP 连接阻塞事件循环至关重要
+  await new Promise(resolve => setTimeout(resolve, 50));
+  console.error('[INFO] Event loop primed, HTTP server fully ready');
 }
 
 /**
@@ -885,9 +890,11 @@ async function main(): Promise<void> {
   await warmupHttpServer(httpPort);
 
   // 7. 创建并连接 MCP Server（可能阻塞，放在最后）
+  // 注意：这个连接可能会阻塞事件循环，所以必须放在所有 HTTP 服务启动之后
   const server = createMcpServer(tools);
   const transport = new StdioServerTransport();
 
+  console.error('[INFO] Starting MCP connection...');
   await server.connect(transport);
   console.error('[INFO] MCP Server connected via stdio');
 
