@@ -876,21 +876,20 @@ async function main(): Promise<void> {
   const tools = generateTools(commands);
   console.error(`[INFO] Generated ${tools.length} MCP tools`);
 
-  // 5. 创建 MCP Server
-  const server = createMcpServer(tools);
-  const transport = new StdioServerTransport();
-
-  // 6. 先连接 MCP（确保能立即响应初始化请求）
-  await server.connect(transport);
-  console.error('[INFO] MCP Server connected via stdio');
-
-  // 7. MCP 连接成功后，启动 HTTP/SSE 服务器
+  // 5. 先启动 HTTP/SSE 服务器（确保可以立即响应请求）
   const httpPort = parseInt(process.env.HTTP_PORT || '8080', 10);
   createHttpServer(httpPort);
   console.error(`[INFO] HTTP/SSE server started on port ${httpPort}`);
 
-  // 7.5. 预热 HTTP 服务器（解决首次请求延迟问题）
+  // 6. 预热 HTTP 服务器
   await warmupHttpServer(httpPort);
+
+  // 7. 创建并连接 MCP Server（可能阻塞，放在最后）
+  const server = createMcpServer(tools);
+  const transport = new StdioServerTransport();
+
+  await server.connect(transport);
+  console.error('[INFO] MCP Server connected via stdio');
 
   // 8. 捕获 MCP 连接关闭事件，保持 HTTP 服务运行
   transport.onclose = () => {
